@@ -32,8 +32,8 @@ public class Program {
                 System.out.println(e.getMessage());
                 input.nextLine();
             }
-            catch (InputMismatchException e){
-                System.out.println(e.getMessage());
+            catch (InputMismatchException c){
+                System.out.println(c.getMessage());
                 input.nextLine();
             }
         }
