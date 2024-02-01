@@ -1,6 +1,5 @@
 package application;
 
-import boardgame.Position;
 import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
@@ -43,15 +42,15 @@ public class Program {
                 if (chessMatch.getPromoted() != null){
                     System.out.print("Enter piece for promotion (B/N/R/Q): ");
                     String type = input.nextLine();
+                    while (!type.equals("B") && !type.equals("Q") && !type.equals("R") && !type.equals("N")){
+                        System.out.print("Invalid Value! Enter piece for promotion: (B/R/N/Q)");
+                        type = input.nextLine().toUpperCase();
+                    }
                     chessMatch.replacePromotedPiece(type);
                 }
 
-           } catch (ChessException e){
+           } catch (ChessException | InputMismatchException e){
                 System.out.println(e.getMessage());
-                input.nextLine();
-            }
-            catch (InputMismatchException c){
-                System.out.println(c.getMessage());
                 input.nextLine();
             }
         }
